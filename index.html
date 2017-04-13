@@ -4,7 +4,10 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css">
-	<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>	
+	<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/modules/data.js"></script>
+	<script src="https://rawgit.com/mholt/PapaParse/master/papaparse.js"></script>
 	<style>
         html, body {
             padding: 0;
@@ -24,6 +27,15 @@
 			left: 48px;
 			width: 360px;
 			height: 34px;
+			color: white;
+		}
+		#highchart{
+        	border-radius: 4px;
+		    padding: 50px; 
+			top: 60px;
+			left: 48px;
+			width: 360px;
+			height: 100px;
 			color: white;
 		}
 		#tip{
@@ -93,7 +105,14 @@
 			</ul>
 		</div>
 	</div>
+	<div id="controller" style="padding-top: 150px; background-color:">
+		<div id="highchart_test"></div>
+	</div>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/modules/data.js"></script>
+	<script src="https://rawgit.com/mholt/PapaParse/master/papaparse.js"></script>
+	<script src="./gg.js"></script>
 	<script src="./eventTarget.js"></script>
 	<script src="./MultiDataLoader.js"></script>
 	<script src="./statLibs.js"></script>
