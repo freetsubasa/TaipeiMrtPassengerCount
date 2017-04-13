@@ -1,40 +1,45 @@
-Highcharts.chart('highchart_test', {
-    chart: {
-      backgroundColor: {
-         linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
-         stops: [
-            [0, '#bdbdc1'],
-            [1, '#77777c']
-         ]
-        }
-    },
+$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
 
-    title: {
-        text: '進出站人數趨勢'
-    },
-    yAxis: {
-        lineColor: '#707073',
+    var year = new Date(data[data.length - 1][0]).getFullYear(); // Get year of last data point
+
+    // Create the chart
+    Highcharts.stockChart('highchart_test', {
+        chart: {
+            backgroundColor: {
+                linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
+                stops: [
+                    [0, '#2a2a2b'],
+                    [1, '#3e3e40']
+                ]
+                }
+        },
+
+        rangeSelector: {
+            selected: 1
+        },
+
         title: {
-            text: '人次'
-        }
-    },
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle'
-    },
+            style: {
+                color: '#E0E0E3',
+                textTransform: 'uppercase',
+                fontSize: '20px'
+            },
+            text: '總進出站人次'
+        },
 
-    plotOptions: {
-        series: {
-            pointStart: 1
-        }
-    },
+        yAxis: {
+            title: {
+                text: '人次'
+            }
+        },
 
-    series: [{
-        name: '出站',
-        data: [11128,11606,9539,9221,8175,8736,11053,11294,11429,12402,11008,9689,11067,11285,11332,11260,11738,10578,8929,11049,11196,11188,11244,11783,11059,9289,10968,11062,11023,11268]
-    }, {
-        name: '進站',
-        data: [11299,11651,10091,9280,8098,8699,11005,11264,11556,12577,11033,9812,11098,11220,11203,11232,11847,10596,8989,10841,11156,11244,11223,11882,11194,9523,10939,10951,11070,11278]
-    }]
+        series: [{
+            name: '進出站人次',
+            data: data,
+            id: 'dataseries',
+            tooltip: {
+                valueDecimals: 4
+            }
+        }, ]
+    });
 });
