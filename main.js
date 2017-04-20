@@ -442,4 +442,3 @@ var stopAutoPlay = function(evt){
 	d3.select('#stop').classed({'hidden': true, 'button': false});
 	clearInterval(autoplayInterval);
 };
-
